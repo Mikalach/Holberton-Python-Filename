@@ -1,4 +1,8 @@
-fileIn = open("SourceCod", "r")
+import sys
+
+print(sys.argv[1])
+
+fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
 Lines = fileIn.readlines()
 Suppr = ["<li>","\n","<code>", "</li>"," ","</code>"]
 Search = "File:"
@@ -13,4 +17,5 @@ for line in Lines:
         line = line.replace(char, "")
     if Search in line:
         line = line.replace(Search, "")
+        line = sys.argv[1] + '/' + line
         createandwrite(line)

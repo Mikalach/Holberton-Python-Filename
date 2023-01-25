@@ -2,7 +2,8 @@ import sys
 from os.path import exists
 
 # Variable Creation
-fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
+file = sys.argv[2] + "/SourceCod"
+fileIn = open(file, "r")
 Lines = fileIn.readlines()
 Suppr = ["<p>", "</p>", "<li>","\n","<code>", "</li>"," ","</code>"]
 SupprV2 = ["<p>", "</p>", "<li>","\n","<code>", "</li>","\t","</code>", "    "]

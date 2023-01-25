@@ -1,7 +1,5 @@
 import sys
 
-print(sys.argv[1])
-
 fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
 Lines = fileIn.readlines()
 Suppr = ["<li>","\n","<code>", "</li>"," ","</code>"]
@@ -10,7 +8,10 @@ Search = ["File:", "Prototype:"]
 # Create the core of the README
 def createReadme():
     f = open("README.md", "a")
-    f.write("A brief description of what this project does and who it's for \n \n| FILE  | PROTOTYPE | \n | ------------- | ------------- |\n")
+    Name = sys.argv[1].replace("Holberton", "")
+    Name = sys.argv[1].replace("-", "")
+    Wrinting = "# Project:" + Name + "\n" + "## Functions Prototypes\n" + "Prototypes for functions written in this project:\n\n| FILE  | PROTOTYPE | \n | ------------- | ------------- |\n"
+    f.write(Wrinting)
     f.close()
 
 # Update the README to create a 
@@ -36,6 +37,12 @@ def createandwrite(name):
     f.write("#!/usr/bin/python3\n")
     f.close()
 
+def printtask():
+    f = open("README.md", "a")
+    f.write("## Task")
+    f.close()
+    
+    
 
 # Main function
 createReadme()
@@ -68,3 +75,5 @@ for i in range(len(NameListFull)):
     if i < len(PrototypeList):
         updatePrototype(PrototypeList[i], NameListFull[i])
         updateReadme(PrototypeList[i], NameList[i])
+        
+printtask()

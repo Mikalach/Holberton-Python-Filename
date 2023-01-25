@@ -54,5 +54,5 @@ Prototypes for functions written in this project:
 	- Returns a list with all values multiplied by a number without using any loops.
 
 - 12-roman_to_int.py:
-	- <strong>technical interview preparation</strong>: 
+	- Converts a Roman numeral to an integer.
 

@@ -1,5 +1,6 @@
 # Holberton-Python-File-Creator
 
+## File description
 - AliasCreator.sh:
   - Shell Script that create an alias to easily launch the programm
   - Alias: "template"
@@ -12,7 +13,7 @@
   - chmod u+x every file
 
 - SourceCod:
-  - test file need to be filled with the HTML source code of the intranet page on you current project
+  - test file filled with the HTML source code of the intranet page on you current project
 
 
 ## How to use

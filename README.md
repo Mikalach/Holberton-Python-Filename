@@ -17,7 +17,10 @@
 
 ## How to use
 
-- Launch AliasCreator.sh (./AliasCreator.sh) (Only the first time)
+Only the first time:
+- Clone the repo into your environement
+- Launch AliasCreator.sh (./AliasCreator.sh)
+
 - Create the holberton directory of the corresponding project
 - In the new holberton directory use `template` command, it will open a text file
 - Open 1 project in intranet page (exemple: https://intranet.hbtn.io/projects/####)

@@ -42,7 +42,7 @@ def printtask(NameList, BodyList):
     f = open("README.md", "a")
     f.write("## Task\n")
     for i in range(len(NameList)):
-        nome = "- " + NameList[i] + ":\n" + "\t" + "- " + BodyList[i] + "\n"
+        nome = "- " + NameList[i] + ":\n" + "\t" + "- " + BodyList[i] + "\n\n"
         f.write(nome)    
     f.close()
     

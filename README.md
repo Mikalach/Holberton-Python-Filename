@@ -23,7 +23,10 @@ Only the first time:
   ```bash
   git clone https://github.com/AlexandreGRN/Holberton-Python-Filename.git
   ```
-- Launch AliasCreator.sh (./AliasCreator.sh)
+- Launch AliasCreator.sh :
+  ```bash
+  ./AliasCreator.sh
+  ```
 
 Before each use:
 - Create the holberton directory of the corresponding project

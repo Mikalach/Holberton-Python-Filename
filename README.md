@@ -25,7 +25,7 @@ Before each use:
 - Create the holberton directory of the corresponding project
 - In the new holberton directory use `template` command, it will open a text file
 - Open 1 project in intranet page (exemple: https://intranet.hbtn.io/projects/####)
-- Open the source page (CTRL + U or right click 'Source Page')
-- Copy everything on the Source Page (CTRL + A and CTRL + C (select all + copy all command))
-- Paste it into the opened text-file (CTRL + V)
+- Open the source page (`CTRL + U` or right click 'Source Page')
+- Copy everything on the Source Page (`CTRL + A` and `CTRL + C` (select all + copy all command))
+- Paste it into the opened text-file (`CTRL + V`)
 - Save and quit

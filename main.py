@@ -1,11 +1,14 @@
 import sys
 
+# Variable Creation
 fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
 Lines = fileIn.readlines()
 Suppr = ["<p>", "</p>", "<li>","\n","<code>", "</li>"," ","</code>"]
 SupprV2 = ["<p>", "</p>", "<li>","\n","<code>", "</li>","\t","</code>", "    "]
 Search = ["File:", "Prototype:", "Task Body"]
 
+
+###############################   README #############################
 # Create the core of the README
 def createReadme():
     f = open("README.md", "a")
@@ -22,32 +25,32 @@ def updateReadme(prototype, line):
     f.write(write)
     f.close()
 
-# Add the prototype to both README and  
+#print task at the end of the README
+def printtask(NameList, BodyList):
+    f = open("README.md", "a")
+    f.write("## Task\n")
+    for i in range(len(NameList)):
+        Summeriz = BodyList[i].replace("Write a function that ", "")
+        nome = "- " + NameList[i] + ":\n" + "\t" + "- " + Summeriz.capitalize() + "\n\n"
+        f.write(nome)    
+    f.close()
+
+###############################  .py file creation #############################
+# Add the prototype to all files 
 def updatePrototype(prototype, name):
     # Add prototype in the file
     filea = open(name, "a")
     filea.write(prototype)
     filea.close()
-    
-    
-    
-    
+
 # Write in new files created
 def createandwrite(name):
     f = open(name, "x")
     f.write("#!/usr/bin/python3\n")
     f.close()
 
-def printtask(NameList, BodyList):
-    f = open("README.md", "a")
-    f.write("## Task\n")
-    for i in range(len(NameList)):
-        nome = "- " + NameList[i] + ":\n" + "\t" + "- " + BodyList[i] + "\n\n"
-        f.write(nome)    
-    f.close()
     
-    
-
+############################### MAIN function #############################
 # Main function
 createReadme()
 PrototypeList = []

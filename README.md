@@ -19,7 +19,10 @@
 ## How to use
 
 Only the first time:
-- Clone the repo into your environement
+- Clone the repo into your environement : 
+  ```bash
+  git clonehttps://github.com/AlexandreGRN/Holberton-Python-Filename.git
+  ```
 - Launch AliasCreator.sh (./AliasCreator.sh)
 
 Before each use:

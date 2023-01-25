@@ -18,7 +18,7 @@
 
 ## How to use
 
-Only the first time:
+### Only the first time:
 - Clone the repo into your environement : 
   ```bash
   git clone https://github.com/AlexandreGRN/Holberton-Python-Filename.git
@@ -28,9 +28,12 @@ Only the first time:
   ./AliasCreator.sh
   ```
 
-Before each use:
+### Before each use:
 - Create the holberton directory of the corresponding project
 - In the new holberton directory use `template` command, it will open a text file
+  ```bash
+  template
+  ```
 - Open 1 project in intranet page (exemple: https://intranet.hbtn.io/projects/####)
 - Open the source page (`CTRL + U` or right click 'Source Page')
 - Copy everything on the Source Page (`CTRL + A` and `CTRL + C` (select all + copy all command))

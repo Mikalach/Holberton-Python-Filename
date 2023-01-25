@@ -2,8 +2,9 @@ import sys
 
 fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
 Lines = fileIn.readlines()
-Suppr = ["<li>","\n","<code>", "</li>"," ","</code>"]
-Search = ["File:", "Prototype:"]
+Suppr = ["<p>", "</p>", "<li>","\n","<code>", "</li>"," ","</code>"]
+SupprV2 = ["<p>", "</p>", "<li>","\n","<code>", "</li>","\t","</code>", "    "]
+Search = ["File:", "Prototype:", "Task Body"]
 
 # Create the core of the README
 def createReadme():
@@ -37,9 +38,12 @@ def createandwrite(name):
     f.write("#!/usr/bin/python3\n")
     f.close()
 
-def printtask():
+def printtask(NameList, BodyList):
     f = open("README.md", "a")
-    f.write("## Task")
+    f.write("## Task\n")
+    for i in range(len(NameList)):
+        nome = "- " + NameList[i] + ":\n" + "\t" + "- " + BodyList[i] + "\n"
+        f.write(nome)    
     f.close()
     
     
@@ -49,6 +53,9 @@ createReadme()
 PrototypeList = []
 NameListFull = []
 NameList = []
+InfoList = []
+testBody = False
+BodyList = []
 for line in Lines:
     # suppress every unwanted character
     for char in Suppr:
@@ -69,6 +76,19 @@ for line in Lines:
         line = line.replace(Search[1], "")
         line = line.replace("def", "def ")
         PrototypeList.append(line)
+        
+for line in Lines:
+    # suppress every unwanted character
+    for char in SupprV2:
+        line = line.replace(char, "")
+    # get the body 
+    if testBody == True:
+        BodyList.append(line)
+    # check for the task body
+    if Search[2] in line:
+        testBody = True
+    else:
+        testBody = False
 
 for i in range(len(NameListFull)):
     createandwrite(NameListFull[i])
@@ -76,4 +96,4 @@ for i in range(len(NameListFull)):
         updatePrototype(PrototypeList[i], NameListFull[i])
         updateReadme(PrototypeList[i], NameList[i])
         
-printtask()
+printtask(NameList, BodyList)

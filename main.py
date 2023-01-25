@@ -14,18 +14,14 @@ def createReadme():
     f.close()
 
 # Update the README to create a 
-def updateReadme(line):
+def updateReadme(prototype, line):
     f = open("README.md", "a")
-    write = "|" + line + "|" + "n" + "|" + "\n"
+    write = "|" + line + "|" + prototype + "|" + "\n"
     f.write(write)
     f.close()
 
 # Add the prototype to both README and  
 def updatePrototype(prototype, name):
-    # Change the readme
-    README = open("README.md", "a")
-    README.write(prototype)
-    README.close()
     # Add prototype in the file
     filea = open(name, "a")
     filea.write(prototype)
@@ -44,6 +40,7 @@ def createandwrite(name):
 # Main function
 createReadme()
 PrototypeList = []
+NameListFull = []
 NameList = []
 for line in Lines:
     # suppress every unwanted character
@@ -52,8 +49,9 @@ for line in Lines:
     # search for file name
     if Search[0] in line:
         line = line.replace(Search[0], "")
+        NameList.append(line)
         linePath = sys.argv[1] + '/' + line
-        NameList.append(linePath)
+        NameListFull.append(linePath)
 
 for line in Lines:
     # suppress every unwanted character
@@ -64,10 +62,9 @@ for line in Lines:
         line = line.replace(Search[1], "")
         line = line.replace("def", "def ")
         PrototypeList.append(line)
-        #updatePrototype(line)##################
 
-for i in range(len(NameList)):
-    createandwrite(NameList[i])
-    updateReadme(NameList[i])
+for i in range(len(NameListFull)):
+    createandwrite(NameListFull[i])
     if i < len(PrototypeList):
-        updatePrototype(PrototypeList[i], NameList[i])
+        updatePrototype(PrototypeList[i], NameListFull[i])
+        updateReadme(PrototypeList[i], NameList[i])

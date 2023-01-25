@@ -1,9 +1,10 @@
 import sys
 from os.path import exists
+from os.path import getsize
 
 # Variable Creation
-file = sys.argv[2] + "/SourceCod"
-fileIn = open(file, "r")
+file1st = sys.argv[2] + "/SourceCod"
+fileIn = open(file1st, "r")
 Lines = fileIn.readlines()
 Suppr = ["<p>", "</p>", "<li>","\n","<code>", "</li>"," ","</code>"]
 SupprV2 = ["<p>", "</p>", "<li>","\n","<code>", "</li>","\t","</code>", "    "]
@@ -69,11 +70,9 @@ ReadmePath = sys.argv[1] + '/' + "README.md"
 
 # tests
 if not sys.argv[1] or sys.argv[1] == "":
-    print("No arguments passed as $PWD value")
-    exit
-if Lines == "":
-    print("No arguments pddd")
-    exit
+    sys.exit("No arguments passed as $PWD value")
+if getsize(file1st) == 0:
+    sys.exit("SourceCod is empty, stop process")
 if exists(ReadmePath):
     testReadme = True
 
@@ -122,3 +121,6 @@ for i in range(len(NameListFull)):
             updateReadme(PrototypeList[i], NameList[i])
 if testReadme == False:
     printtask(NameList, BodyList)
+
+file_to_delete = open(file1st,'w')
+file_to_delete.close()

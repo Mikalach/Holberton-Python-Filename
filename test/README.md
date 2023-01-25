@@ -26,7 +26,6 @@ Prototypes for functions written in this project:
 - 2-uniq_add.py:
 	- Adds all unique integers in a list (only once for each integer).
 
-
 - 3-common_elements.py:
 	- Returns a set of common elements in two sets.
 

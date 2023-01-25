@@ -1,4 +1,5 @@
 import sys
+from os.path import exists
 
 # Variable Creation
 fileIn = open("/root/Holberton-Python-Filename/SourceCod", "r")
@@ -18,7 +19,7 @@ def createReadme():
     f.write(Wrinting)
     f.close()
 
-# Update the README to create a 
+# Update the README to create a table
 def updateReadme(prototype, line):
     f = open("README.md", "a")
     write = "|" + line + "|" + prototype + "|" + "\n"
@@ -45,20 +46,36 @@ def updatePrototype(prototype, name):
 
 # Write in new files created
 def createandwrite(name):
-    f = open(name, "x")
-    f.write("#!/usr/bin/python3\n")
-    f.close()
+    if exists(name):
+        print(name, "already exist and won't be overwritten")
+        return 1
+    else:
+        f = open(name, "x")
+        f.write("#!/usr/bin/python3\n")
+        f.close()
 
     
 ############################### MAIN function #############################
 # Main function
-createReadme()
 PrototypeList = []
 NameListFull = []
 NameList = []
 InfoList = []
 testBody = False
 BodyList = []
+testReadme = False
+ReadmePath = sys.argv[1] + '/' + "README.md"
+
+# tests
+if not sys.argv[1] or sys.argv[1] == "":
+    print("No arguments passed as $PWD value")
+    exit
+if Lines == "":
+    print("No arguments pddd")
+    exit
+if exists(ReadmePath):
+    testReadme = True
+
 for line in Lines:
     # suppress every unwanted character
     for char in Suppr:
@@ -79,7 +96,7 @@ for line in Lines:
         line = line.replace(Search[1], "")
         line = line.replace("def", "def ")
         PrototypeList.append(line)
-        
+
 for line in Lines:
     # suppress every unwanted character
     for char in SupprV2:
@@ -93,10 +110,14 @@ for line in Lines:
     else:
         testBody = False
 
+# Fill all the files
+if testReadme == False:
+    createReadme()
 for i in range(len(NameListFull)):
-    createandwrite(NameListFull[i])
     if i < len(PrototypeList):
-        updatePrototype(PrototypeList[i], NameListFull[i])
-        updateReadme(PrototypeList[i], NameList[i])
-        
-printtask(NameList, BodyList)
+        if createandwrite(NameListFull[i]) != 1:
+            updatePrototype(PrototypeList[i], NameListFull[i])
+        if testReadme == False:
+            updateReadme(PrototypeList[i], NameList[i])
+if testReadme == False:
+    printtask(NameList, BodyList)
